@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-Description: $Id: transcadServiceImpl.osgi.manifest 589 2013-01-15 08:50:21Z sboshort $
+Bundle-ManifestVersion: 2
+Bundle-Name: transcadServiceImpl
+Bundle-SymbolicName: transcadServiceImpl
+Bundle-Activator: be.uhasselt.imob.feathers2.services.impl.transcadService.Activator
+Bundle-Version: 1.0.0
+Import-Package: org.osgi.framework,
+                org.eclipse.osgi.framework.console,
+                org.eclipse.osgi.internal.baseadaptor
+Export-Package: be.uhasselt.imob.feathers2.services.impl.transcadService
+Require-Bundle: imoblib;bundle-version="[1.0.0,2.0.0]",
+                configService;bundle-version="[1.0.0,2.0.0]",
+                commonsService;bundle-version="[1.0.0,2.0.0]",
+                feathers2core;bundle-version="[1.0.0,2.0.0]",
+                log4j;bundle-version="[1.0.0,2.0.0]",
+                transcadService;bundle-version="[1.0.0,2.0.0]",			
+                abstractServiceImpl;bundle-version="[1.0.0,2.0.0]"
+

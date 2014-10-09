@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EntityManagerServiceImpl
+Bundle-SymbolicName: entityManagerServiceImpl
+Bundle-Activator: be.uhasselt.imob.feathers2.services.impl.entityManagerService.Activator
+Bundle-Version: 1.0.0
+Bundle-Description: $Id: entityManagerServiceImpl.osgi.manifest 849 2013-05-21 11:41:58Z MuhammadUsman $
+Import-Package: org.osgi.framework,
+                org.eclipse.osgi.framework.console,
+                org.eclipse.osgi.internal.baseadaptor,
+ com.csvreader;bundle-version="1.0.0"
+Export-Package: be.uhasselt.imob.feathers2.services.impl.entityManagerService
+Require-Bundle: imoblib;bundle-version="[1.0.0,2.0.0]",
+                configService;bundle-version="[1.0.0,2.0.0]",
+                commonsService;bundle-version="[1.0.0,2.0.0]",
+                feathers2core;bundle-version="[1.0.0,2.0.0]",
+                environmentService;bundle-version="[1.0.0,2.0.0]",
+                entityManagerService;bundle-version="[1.0.0,2.0.0]",
+                log4j;bundle-version="[1.0.0,2.0.0]",
+                abstractServiceImpl;bundle-version="[1.0.0,2.0.0]"

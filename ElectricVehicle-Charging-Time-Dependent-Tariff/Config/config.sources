@@ -1,0 +1,53 @@
+# $Id: config.sources 1219 2014-05-20 15:59:19Z LukKnapen $
+# -- ----------------------------------------------------------------
+# Config sources
+# This is a list of config files. It s read by the ConfigService
+# at system startup.
+#
+# Syntax : <ident> <nameSpace>|<fileName>
+#    identifier : config files are read in identifier lexicographic order
+#    nameSpace  : each entry in file will be prefixed using the namespace id;
+#               : config settings can be retrieved using prefix matching:
+#               : prefix matching is *not* limited to the nameSpace id
+#    fileName   : relative (to configuration dir) path for config file
+#
+# Duplicate declarations are allowed : previously declared names get
+# overridden : most specific config thus shall mentioned as the last one
+# 
+# One convention for namespaces is to use the fully qualified name of the
+# class the config is aimed at.
+# -- ----------------------------------------------------------------
+
+# -- General stuff
+f2.01 f2 | f2.properties
+
+# -- widrsStat 
+widrsStat.01 widrsStat | widrsStat.properties
+
+# -- fleet 
+fleet.01 fleet | fleet.properties
+
+# -- EVCPriceMinimiser 
+EVCPriceMinimiser.01 EVCPriceMinimiser | EVCPriceMinimiser.properties
+
+# -- incident 
+incident.01 incident | incident.properties
+
+# -- gnuplot service
+gnuplot.01 gnuplot | gnuplot.properties
+
+
+# -- transcad Scripts service
+transcad.01 transcad | transcad.properties
+
+# -- FetchEpisode service
+fetchEpisode.01 fetchEpisode | fetchEpisode.properties
+
+# -- Traffic Assignment service
+trafficAssignment.01 trafficAssignment | trafficAssignment.properties
+
+# -- Duration Extractor service
+durationExtractor.01 durationExtractor | durationExtractor.properties
+
+# -- rescheduler service
+rescheduler.01 rescheduler | rescheduler.properties

@@ -1,0 +1,23 @@
+Comment-Name: Manifest filename is used by ant build.xml (to find OSGi bundles)
+Comment-Comment: comment lines shall have different 'name' parts
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5 
+Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)
+Bundle-Name: abstractServiceImpl
+Bundle-SymbolicName: abstractServiceImpl
+Bundle-Version: 1.0.0
+Bundle-Description: $Id: abstractServiceImpl.osgi.manifest 586 2013-01-14 23:30:58Z sboshort $
+Bundle-Vendor: be.uhasselt.imob
+Bundle-Category: AbstractServiceImpl
+Comment-Bundle-Activator: be.uhasselt.imob.feathers2.services.impl.abstractService.Activator
+Comment-caution: postgres should be required only if fromSQL is used
+Require-Bundle: imoblib;bundle-version="[1.0.0,2.0.0]",
+                configService;bundle-version="[1.0.0,2.0.0]",
+                configServiceImpl;bundle-version="[1.0.0,2.0.0]",
+                feathers2core;bundle-version="[1.0.0,2.0.0]",
+                log4j;bundle-version="[1.0.0,2.0.0]"
+Comment-Import: Avoid importing packages; using required bundles is cleaner ...
+Import-Package: org.osgi.framework,
+                org.eclipse.osgi.framework.console,
+                org.eclipse.osgi.internal.baseadaptor
+Export-Package:  be.uhasselt.imob.feathers2.services.impl.abstractService

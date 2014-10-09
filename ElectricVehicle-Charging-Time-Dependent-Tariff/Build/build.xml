@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id:  $ -->
+<!-- The project name -->
+<project name="Feathers2" basedir=".." default="all">
+   <import file="init.xml"/>
+
+   	<!-- ================================================================= -->
+   	<!-- Generation of java classes -->
+	<target name="compile" depends="init" description="Compilation">
+    	<!-- depend on the 'build' specs themselves -->
+		<dependset>
+			<!-- you cannot use '*' wildcard in srcfiles specs;
+				<*fileset> does not care about missing files;
+				<*filelist> considers a missing file as being 'newer than the target' (and thus target will be removed)
+			-->
+			<srcfilelist dir="." files="init.xml build.xml bundles.xml"/>
+			<targetfileset dir="${build.dir}" includes="**/*.class" />
+		</dependset>
+		
+		<!-- depend on external libs -->
+		<depend srcdir="${src.dir}" destdir="${build.dir}" cache="${build.dir}/depcache" closure="yes">
+			<classpath refid="f2.classpath" />
+		</depend>
+		
+		<!-- The compile statement -->
+		<javac srcdir="${src.dir}" destdir="${build.dir}" debug="on" debuglevel="${debuglevel}" source="${source}" target="${target}" includeAntRuntime="false">
+			<!--classpath contains every jar, specified in the init.xml -->
+			<classpath refid="f2.classpath" />
+			<compilerarg value="-nowarn"/>
+		</javac>
+	</target>
+
+   <!-- ================================================================= -->
+	<target name="all" depends="javadoc,bundles" description="Build all targets." />
+
+   <!-- ================================================================= -->
+   <!-- JavaDoc generation -->
+	<target name="javadoc" depends="compile" description="Generate javadoc documentation.">
+		<mkdir dir="${dist.dir}/doc/javadoc" />
+		<!-- JavaDoc parameters -->
+		<javadoc packagenames="be.*" destdir="${dist.dir}/doc/javadoc" version="true" author="true" splitindex="true" access="${access}" >
+			<sourcepath>
+				<pathelement path="${src.dir}" />
+			</sourcepath>
+			<classpath refid="f2.classpath" />
+			
+			<!-- new specified commandos -->
+			<tag name="precond." description="PreConditions:" enabled="true" scope="types,constructors,methods,fields"/>
+			<tag name="postcond." description="PostConditions:" enabled="true" scope="types,constructors,methods,fields"/>
+			<tag name="todo." description="ToDo:" enabled="true" scope="types,constructors,methods,fields"/>
+		</javadoc>
+	</target>
+
+   <!-- ================================================================= -->
+   <!-- Bundles generation with ant -->
+	<target name="bundles" depends="compile" description="Build osgi bundles.">
+		<ant antfile="./Build/bundles.xml" dir="${basedir}" target="bundles" inheritRefs="true">
+			<property name="bundleclasses" value="${build.dir}" />
+			<!-- distribution (target) directory -->
+			<property name="bundledist" value="${dist.dir}/bundles" />
+			<!-- source for imported bundles to copy -->
+			<property name="bundlelib" value="${Libraries.internal.dir}" />
+			<property name="bundlesrc" value="${src.dir}" />
+			<property name="bundleextra" value="${Output.dir}/bundleExtra" />
+		</ant>
+	</target>
+
+   	<!-- ================================================================= -->
+    <!-- Clean build directories -->
+	<target name="clean" description="Clean all build-directories, but leave dist untouched">
+		<delete dir="${build.dir}" />
+		<delete dir="${bundleextra}" />
+	</target>
+
+   <!-- ================================================================= -->
+   <!-- Clean everything -->
+	<target name="distclean" depends="clean" description="Clean everything.">
+		<delete dir="${dist.dir}" />
+	</target>
+</project>

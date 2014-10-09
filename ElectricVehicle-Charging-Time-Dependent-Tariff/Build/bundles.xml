@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id -->
+<!-- The project name -->
+<project name="Feathers2" basedir=".." default="bundles">
+	<!-- Looks for all the manifest files -->
+	<target name="bundles" >	
+		<!-- Specified below -->
+		<foreach target="bundle" param="manifest" parallel="true" >
+			<path id="manifests">
+				<fileset dir="${bundlesrc}">
+					<include name="**/*.osgi.manifest"/>
+				</fileset>
+			</path>
+		</foreach>
+	</target>
+
+	<target name="bundle">
+		<!-- Regex (regexp) cuts the "Feathers2" part from the path-->
+		<propertyregex 	property="manifestFile"
+						input="${manifest}"
+						regexp="Feathers2[\\/](.*)" 
+						select="\1"
+						casesensitive="false" />
+		<!-- Makes a "hard coded" path (full file uri) -->
+      	<propertyregex 	property="pack"
+						input="${manifestFile}"
+						regexp="(.*)[\\/$][\.]*"
+						select="\1"
+						casesensitive="false" />
+
+		<basename property="bundlename" file="${manifest}" suffix=".osgi.manifest"/>
+		
+		<mkdir dir="${bundleextra}/${pack}"/>
+		<jar jarfile="${bundledist}/${bundlename}.jar" manifest="${bundlesrc}/${manifestFile}">
+			<fileset dir="${bundleclasses}">
+				<include name="${pack}/**"/>
+			</fileset>
+			<fileset dir="${bundleextra}/${pack}">
+				<include name="**"/>
+			</fileset>
+		</jar>
+		<!-- copy internal libraries bundles -->
+		<copy todir="${bundledist}">
+			<fileset dir="${bundlelib}">
+				<include name="*"/>
+			</fileset>
+		</copy>
+	</target>
+</project>
+

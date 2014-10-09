@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0_17 (Sun Microsystems Inc.)
+Bundle-Description: gnu-getopt
+Bundle-Name: gnu-getopt 
+Bundle-Vendor: GNU
+Bundle-SymbolicName: getopt
+Bundle-Category: Argument parsing
+Bundle-Version: 1.0.0
+Export-Package: gnu.getopt
+

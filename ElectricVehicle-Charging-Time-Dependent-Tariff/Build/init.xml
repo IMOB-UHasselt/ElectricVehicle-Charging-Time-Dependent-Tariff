@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id:  $ -->
+<!-- The project name -->
+<project name="feathers2_init" basedir=".." default="init">
+	<!-- Print statements -->
+	<!-- <echo message="${lib.imob.bundles.dir}"/> -->
+	
+   	<!-- Specify the directories you want to use -->
+	<property name="Feathers2.dir" value="Feathers2" />
+	<property name="Libraries.dir" value="Libraries" />
+	<property name="Libraries.internal.dir" value="${Libraries.dir}/internal" />
+	<property name="Libraries.external.dir" value="${Libraries.dir}/external" />
+	
+	
+ 	<!-- Specify the directories to where the output is generated -->
+	<property name="Output.dir" value="Output" />
+	<property name="build.dir" value="${Output.dir}/build" />
+	<property name="dist.dir" value="${Output.dir}/dist" />
+	
+   <!-- Specify the directories where you place the external libraries -->
+	<property name="lib.osgi.dir" value="${Libraries.external.dir}/equinox" />
+	<property name="lib.apache.dir" value="${Libraries.external.dir}/apache" />
+	<property name="lib.csv.dir" value="${Libraries.external.dir}/csv" />
+	<property name="lib.gnu.dir" value="${Libraries.external.dir}/gnu" />
+	<property name="lib.jgrapht.dir" value="${Libraries.external.dir}/jgrapht" />
+
+  	<!-- Sources directory -->
+	<property name="src.dir" value="${Feathers2.dir}" />
+	
+   	<!-- Javac parameters -->
+	<property name="debuginfo" value="on" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<!-- Java versions -->
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+	
+	<!-- Used for level of JavaDoc generation -->
+	<property name="access" value="private" />
+
+	<!-- Properties file of the ant-contrib -->
+  	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+    	<classpath>
+        	<!-- variable expansion won't work in next line -->
+        	<!-- The jar file of the ant-contrib library -->
+        	<pathelement location="${Libraries.external.dir}/ant/ant-contrib.jar"/>
+		</classpath>
+	</taskdef>
+
+	<!-- The jar files of all the used libraries  -->
+	<path id="f2.classpath">
+		<pathelement location="${Libraries.internal.dir}/imoblib.jar"/>
+		<pathelement location="${Libraries.internal.dir}/configServiceImpl.jar"/>
+		<pathelement location="${Libraries.internal.dir}/configService.jar"/>
+		<pathelement location="${lib.osgi.dir}/org.eclipse.osgi.jar" />
+		<pathelement location="${lib.apache.dir}/log4j.jar"/>
+		<pathelement location="${lib.csv.dir}/csvreader.jar"/>
+		<pathelement location="${lib.gnu.dir}/gnu-getopt.jar"/>
+		<pathelement location="${lib.jgrapht.dir}/jgrapht.jar"/>
+	</path>
+
+
+	<!-- Generated directories to store the output of the build and distribution -->
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.dir}/bundles" />
+      <dependset>
+         <srcfileset dir="${Libraries.internal.dir}" includes = "**/*.jar"/>
+         <targetfileset dir="${build.dir}" includes="**/*.class" />
+      </dependset>
+	</target>
+</project>

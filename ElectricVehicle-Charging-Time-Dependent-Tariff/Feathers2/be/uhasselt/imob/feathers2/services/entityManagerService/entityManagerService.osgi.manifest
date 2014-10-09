@@ -1,0 +1,21 @@
+Comment-interface: This is a pure interface bundle
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5 
+Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)
+Bundle-Name: entityManagerService
+Comment-Bundle-SymbolicName: this is the identifier (reported by the 'ss' command)
+Bundle-SymbolicName: entityManagerService
+Bundle-Version: 1.0.0
+Bundle-Description: $Id: entityManagerService.osgi.manifest 849 2013-05-21 11:41:58Z MuhammadUsman $
+Bundle-Vendor: be.uhasselt.imob
+Bundle-Category: entityManagerService
+Bundle-ClassPath: .
+Comment-Import: import required for Randoms class (which is a dirty trick : cleanup required)
+Comment-Export: nothing from a package is visible unless it has been exported
+Export-Package: be.uhasselt.imob.feathers2.services.entityManagerService
+Comment-Require-Bundle: environment is required because access to Incident is required; the FetchEpisode bundle still need a lot of cleanup
+Require-Bundle: log4j;bundle-version="[1.0.0,2.0.0]",
+                configService;bundle-version="[1.0.0,2.0.0]",
+                configServiceImpl;bundle-version="[1.0.0,2.0.0]",
+                environmentService;bundle-version="[1.0.0,2.0.0]",
+                environmentServiceImpl;bundle-version="[1.0.0,2.0.0]"

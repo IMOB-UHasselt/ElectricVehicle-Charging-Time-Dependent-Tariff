@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-Description: $Id: environmentServiceImpl.osgi.manifest 653 2013-02-06 21:39:36Z LukKnapen $
+Bundle-ManifestVersion: 2
+Bundle-Name: environmentServiceImpl
+Bundle-SymbolicName: environmentServiceImpl
+Bundle-Activator: be.uhasselt.imob.feathers2.services.impl.environmentService.Activator
+Bundle-Version: 1.0.0
+Import-Package: org.osgi.framework,
+                org.eclipse.osgi.framework.console,
+                org.eclipse.osgi.internal.baseadaptor,
+                com.csvreader;bundle-version="1.0.0"
+Export-Package: be.uhasselt.imob.feathers2.services.impl.environmentService
+Require-Bundle: imoblib;bundle-version="[1.0.0,2.0.0]",
+                configService;bundle-version="[1.0.0,2.0.0]",
+                environmentService;bundle-version="1.0.0",
+                commonsService;bundle-version="1.0.0",
+                feathers2core;bundle-version="[1.0.0,2.0.0]",
+                log4j;bundle-version="[1.0.0,2.0.0]",
+                transcadService;bundle-version="1.0.0",			
+                abstractServiceImpl;bundle-version="[1.0.0,2.0.0]"
+

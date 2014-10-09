@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.0
+Created-By: 1.6.0_18-b18 (Sun Microsystems Inc.)
+Bundle-Description: log4j
+Bundle-Name: log4j
+Bundle-Vendor: imob
+Bundle-SymbolicName: log4j
+Export-Package: org.apache.log4j
+Bundle-Category: Logging
+Bundle-Version: 1.0.0
+

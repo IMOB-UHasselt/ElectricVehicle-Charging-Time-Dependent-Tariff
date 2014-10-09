@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-Description: $Id: commonsServiceImpl.osgi.manifest 1071 2014-02-20 13:40:45Z MuhammadUsman $
+Bundle-ManifestVersion: 2
+Bundle-Name: commonsServiceImpl
+Bundle-SymbolicName: commonsServiceImpl
+Bundle-Activator: be.uhasselt.imob.feathers2.services.impl.commonsService.Activator
+Bundle-Version: 1.0.0
+Import-Package: org.osgi.framework,
+                org.eclipse.osgi.framework.console,
+                org.eclipse.osgi.internal.baseadaptor,
+                com.csvreader
+Export-Package: be.uhasselt.imob.feathers2.services.impl.commonsService
+Require-Bundle: log4j;bundle-version="[1.0.0,2.0.0]",
+                imoblib;bundle-version="[1.0.0,2.0.0]",
+                configService;bundle-version="[1.0.0,2.0.0]",
+                configServiceImpl;bundle-version="[1.0.0,2.0.0]",
+                commonsService;bundle-version="[1.0.0,2.0.0]",			
+                abstractServiceImpl;bundle-version="[1.0.0,2.0.0]"
+

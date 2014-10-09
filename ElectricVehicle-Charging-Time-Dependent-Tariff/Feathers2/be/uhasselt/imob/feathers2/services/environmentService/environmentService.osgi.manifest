@@ -1,0 +1,15 @@
+Comment-interface: This is a pure interface bundle
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5 
+Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)
+Bundle-Name: environmentService
+Comment-Bundle-SymbolicName: this is the identifier (reported by the 'ss' command)
+Bundle-SymbolicName: environmentService
+Bundle-Version: 1.0.0
+Bundle-Description: $Id: environmentService.osgi.manifest 586 2013-01-14 23:30:58Z sboshort $
+Bundle-Vendor: be.uhasselt.imob
+Bundle-Category: environmentService
+Bundle-ClassPath: .
+Comment-Export: nothing from a package is visible unless it has been exported
+Export-Package: be.uhasselt.imob.feathers2.services.environmentService
+

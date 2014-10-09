@@ -1,0 +1,17 @@
+Comment-interface: This is a pure interface bundle
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5 
+Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)
+Bundle-Name: feathers2core
+Comment-Bundle-SymbolicName: this is the identifier (reported by the 'ss' command)
+Bundle-SymbolicName: feathers2core
+Bundle-Version: 1.0.0
+Bundle-Description: $Id: feathers2core.osgi.manifest 125 2011-06-03 14:11:58Z LukKnapen $
+Bundle-Vendor: be.uhasselt.imob
+Bundle-Category: Feathers2 Core Interfaces
+Bundle-ClassPath: .
+Comment-Export: nothing from a package is visible unless it has been exported
+Export-Package: be.uhasselt.imob.feathers2.core,
+                be.uhasselt.imob.feathers2.core.area,
+                be.uhasselt.imob.feathers2.core.network
+
